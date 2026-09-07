@@ -1,0 +1,58 @@
+[
+  {
+    "id": "antigravity-nexus",
+    "title": "Nexus AI Agent Orchestrator",
+    "tagline": "Autonomous multi-agent workflow runtime for enterprise microservices",
+    "tech": ["TypeScript", "React", "Node.js", "Tailwind CSS", "Redis"],
+    "metric": "12,000+ workflows processed, 45% reduction in developer onboarding time",
+    "thumbnail": "/assets/projects/nexus.webp",
+    "liveUrl": "https://example.com/nexus",
+    "repoUrl": "https://github.com/invincible1786/nexus-orchestrator",
+    "bullets": [
+      "Engineered an event-driven task distribution engine capable of handling concurrent agent pipelines.",
+      "Implemented zero-latency state restoration with optimistic UI updates and resilient fallback mechanisms."
+    ]
+  },
+  {
+    "id": "dragons-hoard-dex",
+    "title": "Dragon's Hoard DEX",
+    "tagline": "High-throughput decentralized liquidity aggregator and portfolio tracker",
+    "tech": ["React", "TypeScript", "Tailwind CSS", "Ethers.js", "GraphQL"],
+    "metric": "$4.2M total volume routed, 60ms sub-graph query response time",
+    "thumbnail": "/assets/projects/dex.webp",
+    "liveUrl": "https://example.com/dex",
+    "repoUrl": "https://github.com/invincible1786/dragons-hoard-dex",
+    "bullets": [
+      "Constructed custom order routing across 7 decentralized liquidity pools with minimal slippage.",
+      "Designed an interactive high-frequency orderbook visualization with WebGL and zero frame drops."
+    ]
+  },
+  {
+    "id": "pulse-vitals-monitor",
+    "title": "Pulse Realtime Infrastructure Vitals",
+    "tagline": "Edge server health telemetry dashboard with sub-second incident alerting",
+    "tech": ["React", "TypeScript", "Tailwind CSS", "WebSockets", "Go"],
+    "metric": "99.99% uptime maintained across 80+ nodes, 35% reduction in incident MTTR",
+    "thumbnail": "/assets/projects/pulse.webp",
+    "liveUrl": "https://example.com/pulse",
+    "repoUrl": "https://github.com/invincible1786/pulse-vitals",
+    "bullets": [
+      "Streamed live node metrics via compressed binary WebSockets for low-overhead telemetry.",
+      "Built an intuitive alert threshold simulator with instant visual anomaly detection."
+    ]
+  },
+  {
+    "id": "castle-craft-engine",
+    "title": "CastleCraft Design System",
+    "tagline": "Accessible, token-driven retro design system for modern web interfaces",
+    "tech": ["TypeScript", "React", "Tailwind CSS", "Storybook", "Vitest"],
+    "metric": "3,400+ weekly NPM downloads, 100% WCAG-AA compliant component library",
+    "thumbnail": "/assets/projects/castlecraft.webp",
+    "liveUrl": "https://example.com/castlecraft",
+    "repoUrl": "https://github.com/invincible1786/castle-craft",
+    "bullets": [
+      "Authored 30+ accessible headless components with full keyboard traversal and focus trapping.",
+      "Automated visual regression testing pipeline eliminating breaking UI regressions."
+    ]
+  }
+]

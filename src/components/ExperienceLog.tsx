@@ -1,0 +1,81 @@
+import experienceData from '../data/experience.json'
+import type { ExperienceItem } from '../types/content'
+
+const experience = experienceData as ExperienceItem[]
+
+export default function ExperienceLog() {
+  return (
+    <section
+      id="experience"
+      aria-label="Professional Experience and Career Timeline"
+      className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+    >
+      <div className="space-y-6">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-sm" aria-hidden="true">📜</span>
+            <span className="font-arcade text-[10px] sm:text-xs text-[#a855f7] uppercase tracking-wider">
+              CAMPAIGN CHRONICLES // BOSS LOG
+            </span>
+          </div>
+          <h2 className="font-arcade text-lg sm:text-2xl font-bold tracking-tight text-white">
+            CAMPAIGN CHRONICLES
+          </h2>
+          <p className="text-sm sm:text-base text-slate-300 mt-1">
+            Proven track record of engineering leadership, production scalability, and system architecture.
+          </p>
+        </div>
+
+        <div className="relative border-l-2 border-[#2a3650] ml-3 sm:ml-4 space-y-8 pl-6 sm:pl-8">
+          {experience.map((item, idx) => (
+            <article
+              key={`${item.company}-${idx}`}
+              className="relative group"
+              aria-labelledby={`exp-title-${idx}`}
+            >
+              {/* Glowing Timeline Checkpoint Node */}
+              <div
+                className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#38bdf8] border-2 border-[#0a0c16] ring-4 ring-[#172033]"
+                aria-hidden="true"
+              />
+
+              <div className="pixel-card p-5 sm:p-6 rounded-xl space-y-3.5">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                  <h3 id={`exp-title-${idx}`} className="text-lg font-bold text-white tracking-tight">
+                    {item.title}{' '}
+                    <span className="text-[#38bdf8] font-medium">@ {item.company}</span>
+                  </h3>
+                  <time className="font-arcade text-[10px] text-[#f59e0b] tracking-wider">
+                    [{item.year}]
+                  </time>
+                </div>
+
+                {/* Quantified Result Banner */}
+                <div className="p-3.5 rounded-lg bg-[#0a0c16] border border-[#10b981]/40">
+                  <span className="font-arcade text-[8px] uppercase tracking-wider text-[#10b981] block mb-1">
+                    TACTICAL OUTCOME & IMPACT:
+                  </span>
+                  <p className="text-sm text-slate-200 leading-relaxed font-normal">
+                    {item.result}
+                  </p>
+                </div>
+
+                {/* Skill tags */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-0.5 rounded text-xs font-medium bg-[#172033] text-slate-300 border border-[#2a3650]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

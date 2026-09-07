@@ -1,0 +1,206 @@
+@import "tailwindcss";
+@import "@fontsource/press-start-2p/index.css";
+
+@theme {
+  --font-arcade: 'Press Start 2P', monospace;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  --color-dragon-dark: #0a0c16;
+  --color-dragon-surface: #121726;
+  --color-dragon-panel: #172033;
+  --color-dragon-border: #2a3650;
+  --color-dragon-gold: #f59e0b;
+  --color-dragon-fire: #ff4726;
+  --color-dragon-mana: #38bdf8;
+  --color-dragon-emerald: #10b981;
+  --color-dragon-purple: #a855f7;
+}
+
+:root {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #0a0c16;
+  color: #f1f5f9;
+}
+
+/* Custom retro arcade utility classes */
+.font-arcade {
+  font-family: var(--font-arcade);
+  letter-spacing: -0.02em;
+}
+
+.pixel-border {
+  border-style: solid;
+  border-color: #2a3650;
+  box-shadow: 0 4px 0 0 rgba(10, 12, 22, 0.8);
+}
+
+.pixel-card {
+  background-color: #121726;
+  border: 1px solid #2a3650;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.pixel-card-gold {
+  background-color: #121726;
+  border: 1px solid #f59e0b;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15), inset 0 1px 0 0 rgba(245, 158, 11, 0.2);
+}
+
+/* Dragon Idle Animations */
+@keyframes dragonFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes dragonShadow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(0.75);
+    opacity: 0.08;
+  }
+}
+
+@keyframes wingBeatBack {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes wingBeatFront {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+.animate-dragon-float {
+  animation: dragonFloat 4s ease-in-out infinite;
+}
+
+.animate-dragon-shadow {
+  animation: dragonShadow 4s ease-in-out infinite;
+}
+
+.animate-wing-beat {
+  animation: wingBeatBack 3.5s ease-in-out infinite;
+}
+
+.animate-wing-beat-front {
+  animation: wingBeatFront 3.5s ease-in-out infinite;
+}
+
+/* Burst Shard Shatter Animations (Task 5 Signature Interaction) */
+@keyframes shardTop {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-28px) scale(0.9) rotate(-3deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shardRight {
+  0% {
+    transform: translateX(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(28px) scale(0.9) rotate(3deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shardBottom {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(28px) scale(0.9) rotate(3deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shardLeft {
+  0% {
+    transform: translateX(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-28px) scale(0.9) rotate(-3deg);
+    opacity: 0;
+  }
+}
+
+@keyframes burstFlash {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+.shard-top {
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  animation: shardTop 400ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.shard-right {
+  clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+  animation: shardRight 400ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.shard-bottom {
+  clip-path: polygon(100% 100%, 0 100%, 50% 50%);
+  animation: shardBottom 400ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.shard-left {
+  clip-path: polygon(0 100%, 0 0, 50% 50%);
+  animation: shardLeft 400ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.burst-flash {
+  animation: burstFlash 350ms ease-out forwards;
+}
+
+/* Global Prefers-Reduced-Motion Fallback Enforcement */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Ruhaan Kakar",
+  "role": "Frontend & Full-Stack Engineer",
+  "tagline": "Crafting resilient, high-velocity web experiences with surgical precision and delightful interactivity.",
+  "lookingFor": "High-impact Senior Frontend or Full-Stack Engineer roles at forward-thinking, product-led companies.",
+  "resumeUrl": "/resume.pdf",
+  "github": "https://github.com/invincible1786",
+  "linkedin": "https://linkedin.com/in/ruhaan-kakar",
+  "email": "ruhaan.kakar@example.com",
+  "stats": {
+    "level": 4,
+    "class": "Dragon Knight // Frontend Architect",
+    "coins": 4,
+    "lives": 1
+  }
+}

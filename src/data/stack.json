@@ -1,0 +1,40 @@
+{
+  "weapon": [
+    "TypeScript",
+    "JavaScript (ESNext)",
+    "HTML5 / Semantic Web",
+    "CSS3 / Modern CSS",
+    "Node.js"
+  ],
+  "tool": [
+    "React 19",
+    "Vite",
+    "Next.js",
+    "GSAP",
+    "Redux Toolkit / Zustand",
+    "TanStack Query"
+  ],
+  "armor": [
+    "Tailwind CSS",
+    "Docker",
+    "Vercel / Cloudflare",
+    "Git & GitHub Actions",
+    "Figma",
+    "Storybook"
+  ],
+  "potion": [
+    "PostgreSQL",
+    "Redis",
+    "Prisma ORM",
+    "Supabase",
+    "RESTful APIs",
+    "GraphQL"
+  ],
+  "rune": [
+    "Web Performance / Core Web Vitals",
+    "WCAG Accessibility (a11y)",
+    "Automated Testing (Vitest / Playwright)",
+    "Micro-frontend Architecture",
+    "CI/CD Pipelines"
+  ]
+}
