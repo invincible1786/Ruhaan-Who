@@ -22,9 +22,6 @@ export default function Navbar() {
           <span className="font-arcade text-xs sm:text-sm tracking-tight text-white">
             {profile.name}
           </span>
-          <span className="hidden sm:inline-block font-arcade text-[9px] px-2 py-1 rounded bg-[#172033] text-[#f59e0b] border border-[#f59e0b]/40">
-            {profile.stats.level}
-          </span>
         </a>
 
         <nav aria-label="Main Navigation" className="flex items-center gap-1 sm:gap-2">

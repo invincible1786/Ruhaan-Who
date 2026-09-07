@@ -289,72 +289,60 @@ body {
   }
 }
 
-/* Dragon Companion Flourish */
-.dragon-companion {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 128px;
-  height: 128px;
-  pointer-events: none;
-  will-change: transform;
-}
-
-.dragon-glow {
-  position: absolute;
-  inset: -28px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    var(--fire-core) 0%,
-    var(--fire-mid) 38%,
-    transparent 70%
+/* Real Castle Flight Background (Task 4a) */
+.castle-bg {
+  background-image: url('/assets/background/castle-flight-bg.jpg');
+  background-image: image-set(
+    url('/assets/background/castle-flight-bg.webp') type('image/webp'),
+    url('/assets/background/castle-flight-bg.jpg') type('image/jpeg')
   );
-  filter: blur(14px);
-  opacity: 0.32;
-  transition: opacity 180ms ease-out;
-}
-
-.dragon-sprite {
-  width: 128px;
-  height: 128px;
-  background-image: url("/companion/dragon-sprite.png");
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 1024px 128px; /* 8 frames × 128px */
-  animation: flap 0.7s steps(8) infinite;
 }
 
-@keyframes flap {
-  from { background-position-x: 0; }
-  to   { background-position-x: -1024px; }
+.castle-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 8, 20, 0.2) 0%, rgba(10, 8, 20, 0.7) 100%);
 }
 
-/* Reduced-motion: stay visible, static, deliberate resting pose */
-.dragon-static {
-  transform: translate3d(62%, 18%, 0) rotate(-5deg) !important;
-}
-.dragon-static .dragon-sprite {
-  animation: none !important;
-  background-position-x: 0 !important; /* pin to the best single frame */
-}
-.dragon-static .dragon-glow {
-  opacity: 0.22;
+/* Thor's Hammer Simple Cursor */
+body {
+  cursor: url('/assets/cursor/thor-hammer.png') 4 4, auto;
 }
 
-/* Procedural Fireball Cursor Active Styles */
-body.fireball-cursor-active,
-body.fireball-cursor-active a,
-body.fireball-cursor-active button {
-  cursor: none;
+a,
+button,
+[role="button"],
+.clickable,
+input[type="submit"] {
+  cursor: url('/assets/cursor/thor-hammer.png') 4 4, pointer;
+}
+
+@supports (cursor: image-set(url('/assets/cursor/thor-hammer.png') 1x)) {
+  body {
+    cursor: image-set(
+      url('/assets/cursor/thor-hammer.png') 1x,
+      url('/assets/cursor/thor-hammer@2x.png') 2x
+    ) 4 4, auto;
+  }
 }
 
 /* High-Contrast / Forced-Colors Accessibility Fallbacks */
 @media (forced-colors: active) {
-  .dragon-glow,
   canvas[aria-hidden="true"] {
     display: none;
   }
-  body.fireball-cursor-active {
-    cursor: auto;
+  body,
+  a,
+  button,
+  [role="button"],
+  .clickable,
+  input[type="submit"] {
+    cursor: auto !important;
   }
 }
+
+

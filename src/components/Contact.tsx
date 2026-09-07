@@ -92,9 +92,6 @@ export default function Contact() {
                 </div>
               )}
             </div>
-            <p className="text-xs text-slate-400">
-              Guaranteed transmission response within 24–48 hours.
-            </p>
           </div>
 
           <div className="flex flex-wrap gap-3 pt-2">

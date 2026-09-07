@@ -1,231 +1,142 @@
-🐉 Drag'n'Boom Portfolio — Antigravity Agent Task Spec
+🖼️ Drag'n'Boom Portfolio — Visual Asset Integration (Antigravity Task Addendum)
 
-Recommended Agent Manager mode: Agent-assisted (review-driven for Task 1 content decisions, autopilot acceptable from Task 3 onward once scaffolding exists).
+This is a follow-up task list for the same Antigravity project already running against `implementation.md` in `invincible1786/Ruhaan-Who`. It assumes Tasks 0–4 (scaffold → background/dragon idle) exist already. Paste this whole file in as the next task after whichever of Task 4–8 you're currently on — it does not replace any existing task, it wires in three real assets that are now final.
 
-Global Project Constraints (apply to every task — paste into Antigravity's persistent rules/memory)
-STACK: Vite + React + TypeScript + Tailwind CSS. No Next.js unless explicitly instructed later.
-NO PixiJS. NO Matter.js. NO Howler.js. Do not install these packages under any circumstances.
-Animation: GSAP core + ScrollTrigger only, or plain CSS/@keyframes, or IntersectionObserver.
-Dragon rendering: Lottie (via lottie-react or lottie-web) OR CSS/SVG sprite. Never a canvas game-engine rig.
-Burst effect: exactly ONE technique — CSS clip-path shatter OR a Lottie impact clip. Never combine multiple burst techniques.
-Interactive JS bundle budget: under 150-200kB gzipped, excluding React itself. Check bundle size after every task that adds a dependency.
-Every interactive element must be a real semantic <button> or <a> with an aria-label. No div-onClick-only interactions.
-Every animated feature requires a working `prefers-reduced-motion` fallback in the SAME commit/task, using the same code path as any asset-load-failure fallback.
-Content lives in /src/data/*.json — never hardcode project/experience copy inside components.
-Do not add sound/audio in this task list. Do not add Matter.js-style physics. Do not build a Pixi dragon state machine.
-After each task, run a build and report bundle size and any TypeScript/lint errors before declaring the task complete.
-TASK 0 — Project Scaffold
+Recommended Agent Manager mode: **Fast Mode**. There are no open design decisions here — the assets are final, sized, and named below. The agent should not source, generate, or regenerate any imagery for this task.
 
-Objective: Initialize the project skeleton with the locked stack, no content or design yet.
+---
 
-Do:
+## Carry-forward constraints (same as implementation.md — do not relax)
 
-npm create vite@latest with React + TypeScript template.
-Install Tailwind CSS and configure it.
-Install GSAP (gsap) only — do not install any other animation/physics library yet.
-Create the folder structure:
-/src
-  /data
-  /components
-  /lib
-  /hooks
-  /assets
-Add a placeholder App.tsx that renders an empty <main> with six empty <section id="..."> elements: hero, stats, stack, projects, experience, contact.
-Set up ESLint + Prettier with a basic config.
+- STACK: Vite + React + TypeScript + Tailwind. No new dependencies for this task — no cursor libraries, no image libraries, plain CSS only.
+- Every animated feature still needs its existing `prefers-reduced-motion` fallback — this task adds **no new animation**, so nothing here should touch that logic except where Task 4c below says so explicitly.
+- Content/asset paths only — do not hardcode copy.
+- Run a build after each task and report bundle size / TS / lint errors before declaring it complete, same as every other task in the spec.
+- Lighthouse accessibility must stay ≥ 90 after each of these changes (per Task 3/8's existing gate).
 
-Acceptance criteria (agent verifies before completing):
+## Assets provided (attached to this task — do not re-source)
 
- npm run build succeeds with zero errors.
- npm run dev serves the app locally.
- Folder structure matches exactly what's listed above.
- No animation library besides gsap is present in package.json.
-TASK 1 — Content Data Files (human review required before Task 2 starts)
+| File | Size (px) | Format | Goes in | Used by |
+|---|---|---|---|---|
+| `castle-flight-bg.webp` (+ `.jpg` fallback) | 990×548 | WebP/JPEG | `/public/assets/background/` | Task 4a |
+| `dragon-avatar-v2.png` (+ `.webp`) | 440×290, transparent | PNG/WebP | `/src/assets/dragon/` | Task 4b |
+| `sword-cursor.png` | 128×51, transparent | PNG | `/public/assets/cursor/` | Task 4c |
+| `sword-cursor@0.5x.png` | 64×26, transparent | PNG | `/public/assets/cursor/` | Task 4c (optional HiDPI) |
+| `sword-full-res.png` | 542×217, transparent | PNG | `/src/assets/cursor/` | spare — not wired to anything, kept as source art in case a larger sword graphic is wanted elsewhere later |
 
-Objective: Create the JSON content files with real placeholder structure. Flag to the human that actual copy (project metrics, experience outcomes, "looking for X" line) must be filled in by them before Task 4 — do not invent fake metrics.
+The background and dragon assets were both cropped/cleaned from the originals (checkerboard/game-UI removed, dragon cut out from its title-card background) — they're ready to drop in as-is, no further editing needed.
 
-Do:
+---
 
-Create /src/data/projects.json with this shape per entry:
-json
-{
-  "id": "string-slug",
-  "title": "string",
-  "tagline": "string",
-  "tech": ["string"],
-  "metric": "string — REQUIRED real outcome, e.g. '500+ users, 40% faster load'",
-  "thumbnail": "path or URL",
-  "liveUrl": "string",
-  "repoUrl": "string",
-  "bullets": ["string", "string"]
-}
-Create /src/data/experience.json:
-json
-{
-  "year": "string",
-  "title": "string",
-  "company": "string",
-  "result": "string — REQUIRED quantified outcome",
-  "tags": ["string"]
-}
-Create /src/data/stack.json, grouped by category: weapon (languages), tool (frameworks), armor (design/infra), potion (databases), rune (misc).
-Create /src/data/profile.json: name, role, tagline, lookingFor (the "looking for X" line — required, do not leave blank), resumeUrl, github, linkedin, email, plus honest stats: level, class, coins (real count of projects), lives (real count of open slots).
+## TASK 4a — Swap in the real castle-flight background
 
-Acceptance criteria:
+**Objective:** Replace whatever placeholder gradient/SVG `CastleBackground.tsx` is currently using with the supplied screenshot, used as a single static image (no parallax layers to build — static is the explicit choice here).
 
- All four JSON files exist and are valid JSON (validate with a parse check).
- Every project entry has a non-empty metric field.
- Every experience entry has a non-empty result field.
- profile.json has a non-empty lookingFor field.
- Agent output includes an explicit note to the human: "Placeholder values need your real numbers before this looks credible — review projects.json, experience.json, and profile.json."
-TASK 2 — Static Skeleton (No Animation)
+**Do:**
+- Copy `castle-flight-bg.webp` and `castle-flight-bg.jpg` into `/public/assets/background/`.
+- In `CastleBackground.tsx`, render it as a plain CSS background on the section container:
+  ```css
+  .castle-bg {
+    background-image: image-set(
+      url('/assets/background/castle-flight-bg.webp') type('image/webp'),
+      url('/assets/background/castle-flight-bg.jpg') type('image/jpeg')
+    );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  ```
+  (If `image-set()` browser support is a concern, a `<picture>`-less fallback is fine: just point `background-image` straight at the `.jpg` and skip WebP — simplicity over savings here, agent's call.)
+- Since this is static (per instruction — parallax/scroll-tied motion is explicitly *not* wanted for this image), remove or skip whatever Task 4's ScrollTrigger parallax hook was going to attach to this layer. Existing dragon-idle parallax (Task 4's `DragonIdle.tsx`) is untouched by this task.
+- This image is decorative — mark the container `aria-hidden="true"` or apply it as a pure CSS background (not an `<img>`) so it never enters the accessibility tree.
+- Run the existing WCAG-AA contrast check (Task 8) against any text sitting on top of this image. If anything fails, add a scrim, e.g.:
+  ```css
+  .castle-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,8,20,0.15) 0%, rgba(10,8,20,0.55) 100%);
+  }
+  ```
 
-Objective: Build every section as plain, fully responsive React components reading from Task 1's data files. Zero animation, zero dragon, zero background art. This must look like a complete, professional portfolio on its own.
+**Acceptance criteria:**
+- Background renders full-bleed behind the intended section at 375px, 768px, 1280px with no stretching/distortion (`cover` + `center` handles this — verify visually).
+- No layout shift / blocked first paint (lazy-load or at minimum don't inline as base64).
+- Any text over the image passes the existing contrast audit; scrim added if it didn't.
+- Bundle/asset size reported — should add well under 100KB (WebP variant is ~30KB).
 
-Do:
+---
 
-Build components: Hero.tsx, StatsHUD.tsx, TechInventory.tsx, ProjectsGrid.tsx + ProjectTile.tsx + ProjectDetailCard.tsx, ExperienceLog.tsx, Contact.tsx.
-ProjectTile is a real <button> that, on click, toggles an expanded ProjectDetailCard inline (plain conditional render, no animation yet).
-Hero must render lookingFor, resume link, GitHub, LinkedIn prominently — not hidden behind any interaction.
-Contact renders a real form (use Formspree — ask human for their Formspree endpoint, use a placeholder env var VITE_FORMSPREE_URL if not yet provided) plus a mailto: fallback link.
-Apply Tailwind for full responsiveness (mobile, tablet, desktop breakpoints) — no design flourish yet, just clean and readable.
-Use a normal system sans-serif font for all body text. Do not add a retro/pixel font yet (that's Task 3's art-direction step).
+## TASK 4b — Replace the HUD dragon avatar with the new artwork
 
-Acceptance criteria:
+**Objective:** The small glowing dragon graphic that renders next to the `[LVL {n}]` badge (the player/class HUD element — likely in `StatsHUD.tsx`, wherever `profile.json`'s `level`/`class` fields are displayed) gets replaced with the supplied `dragon-avatar-v2` artwork.
 
- All six sections render real content from the JSON data files (no hardcoded copy in components).
- Site is usable and readable at 375px, 768px, and 1280px widths.
- Clicking a project tile expands details inline without a page reload.
- Resume/GitHub/LinkedIn links are visible in the Hero without needing any interaction.
- Contact form is present and either submits to Formspree or falls back to mailto:.
- Lighthouse accessibility score ≥ 90 on this static version.
- Agent output flags: "Static skeleton complete — recommend the human user-test this before Task 3 proceeds to visual/animation work."
-TASK 3 — Art Direction & Design Tokens
+**Note the assumption here, and flag it back to the human per the existing Task 1 human-review pattern:** the source image was a full title-card (logo text + dragon + background); this task assumes you only want the **dragon character itself** as the avatar (already isolated/cropped, transparent background, ready to drop into a badge), not the full card with the "DRAG'N BOOM ONLINE" logo. If that's wrong, say so before this task ships — the full original card can be supplied separately for a splash/loading-screen use instead.
 
-Objective: Apply the locked visual style consistently. Human must supply the style choice before this task starts — pause and ask if not already specified: pixel / flat-vector / semi-painterly, plus a 4–6 color hex palette.
+**Do:**
+- Copy `dragon-avatar-v2.png`/`.webp` into `/src/assets/dragon/`.
+- Locate the component currently rendering that HUD dragon graphic. Import and swap its image source:
+  ```tsx
+  import dragonAvatar from '@/assets/dragon/dragon-avatar-v2.png';
+  // ...
+  <img
+    src={dragonAvatar}
+    alt={`${profile.class} avatar`}
+    className="hud-dragon-avatar"
+  />
+  ```
+- If the existing element currently renders a Lottie/animated idle loop *specifically for this HUD badge* (as opposed to the big hero-section `DragonIdle.tsx`), replace that render with this static `<img>` — this task intentionally trades that one glowing-icon animation for the static artwork. Do **not** touch the separate hero-section idle dragon from Task 4 — that stays as-is.
+- Keep (or add) the existing glow/aura styling behind the image with plain CSS so the badge still reads as "powered up," e.g.:
+  ```css
+  .hud-dragon-avatar {
+    width: 72px; height: auto;
+    filter: drop-shadow(0 0 12px rgba(255,150,40,0.65));
+  }
+  ```
+- If you cannot confidently find a dedicated HUD/badge component distinct from the hero `DragonIdle.tsx`, treat this as ambiguous: implement the swap on whichever component actually renders the `[LVL n]` badge icon, and explicitly flag to the human which file you changed so they can confirm it was the right one.
 
-Do:
+**Acceptance criteria:**
+- `[LVL n]` badge now shows the new artwork, not the old icon.
+- Image has proper `alt` text (non-empty, derived from `profile.json`, not hardcoded).
+- Badge remains legible/sized consistently across 375px/768px/1280px.
+- Lighthouse accessibility still ≥ 90.
+- Agent explicitly states which component file it edited, so the human can confirm the right element was targeted.
 
-Add the chosen retro/pixel font (e.g. via @fontsource/press-start-2p or Google Fonts import) — apply it only to headings/HUD labels (StatsHUD, section titles, button labels), never to body paragraph text.
-Define Tailwind theme tokens (tailwind.config.js) for the locked color palette, border-radius language, and shadow style — apply consistently across all components.
-Restyle the static components from Task 2 to match: HUD-style stat badges, inventory-slot styled tech grid, "high score" styled project tiles, "boss log" styled experience timeline, "continue screen" styled contact section.
-Do not add background art, dragon, or animation yet — this task is typography/color/spacing only.
+---
 
-Acceptance criteria:
+## TASK 4c — Custom sword cursor
 
- Retro font appears only in headings/labels, confirmed by inspecting rendered body text uses the sans-serif font.
- Color palette values in tailwind.config.js match the locked palette exactly, no ad-hoc hex values in components.
- Visual consistency check: dragon-adjacent decorative elements (once added in Task 4) will need to reuse these same tokens — note this file/theme location for Task 4.
- Lighthouse accessibility score still ≥ 90 after restyle (verify contrast wasn't broken by new palette).
-TASK 4 — Background & Idle Dragon
+**Objective:** Site-wide custom cursor using the supplied sword artwork, with the blade tip as the click point.
 
-Objective: Add the castle background and an idle-only animated dragon. No per-section choreography, no fire-breath/dive-bomb states.
+**Do:**
+- Copy `sword-cursor.png` (and, optionally, `sword-cursor@0.5x.png`) into `/public/assets/cursor/`.
+- In the global stylesheet, set the cursor with an explicit hotspot at the sword's tip (pre-computed at **126, 5** for the 128×51 asset) and always keep a real fallback keyword after it:
+  ```css
+  body {
+    cursor: url('/assets/cursor/sword-cursor.png') 126 5, auto;
+  }
 
-Do:
+  a, button, [role="button"], .clickable, input[type="submit"] {
+    cursor: url('/assets/cursor/sword-cursor.png') 126 5, pointer;
+  }
+  ```
+- Optional HiDPI enhancement (Chromium/Edge only — Firefox ignores `image-set()` in `cursor`, so the plain `url()` above must stay as the base, this is additive only):
+  ```css
+  body {
+    cursor: image-set(
+      url('/assets/cursor/sword-cursor.png') 1x,
+      url('/assets/cursor/sword-full-res.png') 2x
+    ) 126 5, auto;
+  }
+  ```
+- Do not remove the trailing generic keyword (`auto`/`pointer`) on any rule — that's the fallback for browsers/OSes that reject the custom image (e.g. anything over 128px in a dimension is unreliable across browsers, which is why the asset was pre-sized to 128×51).
+- This is purely decorative/cosmetic — it must not change focus behavior, keyboard operability, or hit-target sizing anywhere. No ARIA changes needed.
 
-Source or generate 1–2 background layer images (sky/castle silhouette) matching the Task 3 art direction. If the human hasn't provided assets, use simple flat CSS gradients/SVG shapes as placeholders and flag this explicitly.
-Build CastleBackground.tsx: renders the background layer(s); on desktop, apply a light CSS/GSAP ScrollTrigger parallax (scrub); on mobile (useMediaQuery under 768px), render a single static flat image with no parallax.
-Build DragonIdle.tsx: use a free/placeholder Lottie file (search LottieFiles for a dragon or flame-creature loop) via lottie-react, OR a hand-rolled CSS @keyframes float+bob on an SVG if no suitable Lottie is found. Loop only — no state changes.
-Apply a light GSAP ScrollTrigger parallax to the dragon's vertical position on desktop only; static float on mobile.
-Lazy-load the Lottie/background assets (dynamic import or loading="lazy") so they don't block first paint.
-Build the reduced-motion fallback in this same task: if prefers-reduced-motion is set, or if the Lottie asset fails/times out to load, render the dragon as a static single-frame image with no animation, and skip all parallax. Implement this via one shared fallback path (a useAssetFallback or similar hook), not a separate one-off if per component.
+**Acceptance criteria:**
+- Custom cursor visible over body text and over every interactive element class listed above, in both Chrome and Firefox.
+- Keyboard-only navigation (Tab/Enter/Space) is completely unaffected — verify against the Task 8 keyboard walkthrough.
+- No console errors if the cursor image fails to load (browser silently falls back to the keyword — confirm this is in fact what happens, don't add extra JS for it).
+- Existing Lighthouse accessibility score unaffected (cursor styling has no a11y weight, but confirm nothing else regressed).
 
-Acceptance criteria:
+---
 
- Dragon and background load without blocking Time to Interactive (verify via Lighthouse).
- prefers-reduced-motion correctly disables parallax and animation (test by toggling the OS/browser setting).
- Simulating a failed asset load (e.g. block the Lottie URL in devtools) falls back cleanly with no layout break or blank flash.
- Mobile viewport (< 768px) shows static flat background and static dragon — confirm no parallax JS runs at all on mobile (check via a console log or network/perf tab, not just visually).
- Bundle size check: report current gzipped interactive JS total against the 150–200kB budget. If already close/over, flag before proceeding to Task 5.
-TASK 5 — Signature Interaction: Project Burst (single tile first)
-
-Objective: Implement the one chosen burst technique (CSS clip-path shatter OR Lottie impact clip — pick one, confirm with human if not already decided) for exactly one project tile, fully polished including all edge cases, before generalizing.
-
-Do (single-tile implementation):
-
-On click/Enter/Space of the first project tile: play the chosen burst technique, total duration under 500–600ms.
-Crossfade/scale the tile into the expanded ProjectDetailCard inline (already built in Task 2 — now animate the transition).
-Debounce so a rapid double-activation doesn't restart or overlap the animation.
-Focus management: on open, move focus into the expanded card (e.g. to its close control or heading); on close (Escape key or visible close button), return focus to the originating tile.
-Handle resize/orientation change while the card is open without breaking layout.
-Reduced-motion / asset-failure fallback: reuse the Task 4 fallback pattern — tile expands via simple scale/fade with no shatter/particle effect.
-Do not touch the other project tiles yet.
-
-Acceptance criteria:
-
- Full interaction (click → burst → reveal) completes in under 600ms, verified via browser performance profiling.
- Keyboard-only walkthrough: tab to tile, activate with Enter, verify focus lands inside the card, Escape closes and returns focus correctly.
- Reduced-motion setting produces the simple fallback, confirmed by toggling the OS setting.
- Rapid double-click does not produce overlapping/broken animation state.
- Resizing the window / rotating a simulated mobile viewport while the card is open does not break layout.
- Agent pauses here and reports: "Single-tile burst complete and verified against all edge cases. Ready to generalize to remaining tiles — confirm before proceeding."
-TASK 6 — Generalize Burst to All Project Tiles + Analytics
-
-Objective: Apply the verified Task 5 pattern to every remaining project tile, and add lightweight analytics.
-
-Do:
-
-Extract the Task 5 interaction into a reusable hook/component if not already done, apply to all tiles in projects.json.
-Install and configure Vercel Analytics (or Plausible if the human prefers) — track events: project tile click (with project id), resume download click.
-Do not add any new animation techniques in this task — only reuse Task 5's pattern.
-
-Acceptance criteria:
-
- Every project tile in the data file has working burst-to-reveal behavior, keyboard access, and reduced-motion fallback (spot-check at least 3 tiles beyond the first).
- Analytics events fire correctly, confirmed via the analytics dashboard or a debug console log during dev.
- Bundle size re-checked against budget.
-TASK 7 — Mobile Enforcement & Performance Gate (hard gate — do not deploy past this without passing)
-
-Objective: Enforce all mobile simplifications via code (not just visual guesswork) and pass the performance budget as a hard gate.
-
-Do:
-
-Audit every component for a useMediaQuery/breakpoint check that disables on mobile: dragon scroll-parallax, background parallax, any particle/shatter extras (CSS-only scale-fade should remain).
-Run a production build (npm run build) and report the final gzipped interactive JS size against the 150–200kB budget.
-Run Lighthouse (mobile profile) — target: performance ≥ 85, accessibility ≥ 90, LCP < 2.5s.
-If any gate fails: identify the heaviest dependency/asset and either lazy-load, compress, or remove it. Do not proceed to Task 8 until all three gates pass.
-
-Acceptance criteria:
-
- Lighthouse mobile performance ≥ 85 — hard gate, non-negotiable.
- Lighthouse accessibility ≥ 90 — hard gate.
- LCP < 2.5s — hard gate.
- Interactive JS bundle within 150–200kB gzipped, or an explicit documented exception approved by the human.
- Confirmed via code inspection (not just visual check) that mobile disables parallax/particles.
-TASK 8 — Full Accessibility & QA Pass
-
-Objective: Final keyboard, screen-reader, and cross-viewport verification across the entire site.
-
-Do:
-
-Full keyboard-only walkthrough from Hero to Contact, including opening/closing every project card.
-Verify every interactive element has an accessible name (aria-label or visible text).
-Verify contrast on all text over background art meets WCAG-AA (add a scrim panel behind any failing text block).
-Test at 375px, 768px, 1280px, and one ultra-wide breakpoint.
-Test the reduced-motion path end-to-end one more time across all sections, not just the dragon and burst.
-
-Acceptance criteria:
-
- Zero keyboard traps; all content reachable and operable via keyboard alone.
- No contrast failures reported by an automated audit (axe/Lighthouse).
- Reduced-motion path verified across the whole site, not just individual components.
-TASK 9 — Deploy
-
-Objective: Ship to production.
-
-Do:
-
-Deploy to Vercel (or human's preferred host).
-Verify in production: contact form submits (or mailto: opens correctly), resume link downloads/opens, GitHub/LinkedIn links work, analytics events fire.
-Add favicon and Open Graph image matching the locked art direction (Task 3 tokens).
-
-Acceptance criteria:
-
- Production URL loads correctly on both desktop and a real mobile device (not just emulation).
- Contact path, resume, and social links all verified working in production.
- OG image renders correctly when the URL is shared (test via a link-preview debugger).
- Analytics dashboard shows live events after a manual test interaction.
-Deferred (do not attempt unless explicitly instructed in a new task)
-
-Fire-breath sweep animation, dive-bomb experience-timeline animation, full multi-state Pixi dragon rig, Matter.js physics debris, sound effects, dedicated /projects/[slug] SEO routes. These are v2 scope — only pick up one at a time, each as its own scoped task with the same acceptance-criteria structure as above, after Task 9 has shipped and been used by real visitors.
-
-Feed these tasks to Antigravity one at a time in order. Use Plan Mode for Tasks 0–1 and 3–5 (design/content decisions benefit from a reviewable plan artifact first); Fast Mode is fine for the more mechanical Tasks 2, 6–9. Do not let the agent skip a task's acceptance-criteria checklist before moving to the next.
+Feed Tasks 4a → 4b → 4c to Antigravity in order (4a and 4c are independent and could run in parallel if you prefer; 4b depends on locating the existing HUD component so give the agent time to search the codebase first). None of these need Plan Mode — they're mechanical drop-in-asset-and-wire-up tasks, Fast Mode throughout.
