@@ -119,9 +119,11 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right Side: Arcade Form */}
-        <div className="pixel-card p-6 sm:p-7 rounded-2xl">
-          <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#2a3650]">
+        {/* Right Side: Quest Scroll Arcade Form */}
+        <div className="quest-scroll-panel">
+          <div className="quest-scroll-border">
+            <div className="quest-scroll-content p-6 sm:p-7 pb-10">
+              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#2a3650]">
             <span className="font-arcade text-xs text-white">
               DISPATCH TRANSMISSION
             </span>
@@ -226,6 +228,8 @@ export default function Contact() {
               </div>
             </form>
           )}
+            </div>
+          </div>
         </div>
       </div>
     </section>

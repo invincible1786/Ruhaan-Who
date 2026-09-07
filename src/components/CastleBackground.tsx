@@ -62,9 +62,21 @@ export default function CastleBackground() {
       >
         <defs>
           <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#070913" />
-            <stop offset="40%" stopColor="#0a0e1c" />
-            <stop offset="80%" stopColor="#101528" />
+            <stop offset="0%" stopColor="#05070e" />
+            <stop offset="12.5%" stopColor="#05070e" />
+            <stop offset="12.5%" stopColor="#070a14" />
+            <stop offset="25%" stopColor="#070a14" />
+            <stop offset="25%" stopColor="#0a0e1d" />
+            <stop offset="37.5%" stopColor="#0a0e1d" />
+            <stop offset="37.5%" stopColor="#0e1328" />
+            <stop offset="50%" stopColor="#0e1328" />
+            <stop offset="50%" stopColor="#121832" />
+            <stop offset="62.5%" stopColor="#121832" />
+            <stop offset="62.5%" stopColor="#151c38" />
+            <stop offset="75%" stopColor="#151c38" />
+            <stop offset="75%" stopColor="#101529" />
+            <stop offset="87.5%" stopColor="#101529" />
+            <stop offset="87.5%" stopColor="#0a0c16" />
             <stop offset="100%" stopColor="#0a0c16" />
           </linearGradient>
 

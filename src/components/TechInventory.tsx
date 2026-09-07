@@ -69,9 +69,11 @@ export default function TechInventory() {
           </p>
         </div>
 
-        {/* Single Unified Box for all Tech Stack */}
-        <div className="pixel-card p-6 sm:p-8 rounded-2xl divide-y divide-[#2a3650]/60 space-y-6">
-          {categories.map((cat, idx) => (
+        {/* Differentiated Inventory Slot Chassis */}
+        <div className="inventory-slot-panel">
+          <div className="inventory-slot-border">
+            <div className="inventory-slot-content p-6 sm:p-8 divide-y divide-[#2a3650]/60 space-y-6">
+              {categories.map((cat, idx) => (
             <div key={cat.key} className={idx > 0 ? 'pt-6' : ''}>
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-3">
                 <h3 className={`font-arcade text-xs sm:text-sm font-bold tracking-wide ${cat.accentColor}`}>
@@ -94,6 +96,8 @@ export default function TechInventory() {
               </div>
             </div>
           ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ const profile = profileData as Profile
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-[#0a0c16]/90 border-b border-[#2a3650]">
+    <header className="sticky top-0 z-40 w-full bg-[#0a0c16] border-b-2 border-[#2a3650] shadow-[0_4px_0_0_#0a0c16]">
       <a
         href="#hero"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 z-50 px-4 py-2 bg-[#ff4726] text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white"

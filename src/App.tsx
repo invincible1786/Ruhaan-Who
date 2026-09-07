@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import ProjectsGrid from './components/ProjectsGrid'
+import StatsHUD from './components/StatsHUD'
 import TechInventory from './components/TechInventory'
 import { Analytics } from '@vercel/analytics/react'
 import FireballCursor from './components/cursor/FireballCursor'
@@ -23,6 +24,7 @@ export default function App() {
         <Navbar />
         <main className="flex-1 space-y-4">
           <Hero />
+          <StatsHUD />
           <TechInventory />
           <ProjectsGrid />
           <ExperienceLog />
