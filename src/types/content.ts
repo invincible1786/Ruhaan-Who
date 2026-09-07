@@ -32,11 +32,21 @@ export interface TechStack {
   rune: string[] // Misc & Special Tools
 }
 
+export interface ProfileEducation {
+  institute: string
+  degree: string
+  minor?: string
+  cgpa: string
+  year: string
+  classXII?: string
+  classX?: string
+}
+
 export interface ProfileStats {
-  level: number
+  level: string | number
   class: string
-  coins: number // Real count of projects
-  lives: number // Real count of open slots
+  coins: string | number
+  lives: string | number
 }
 
 export interface Profile {
@@ -48,5 +58,7 @@ export interface Profile {
   github: string
   linkedin: string
   email: string
+  phone?: string
+  education?: ProfileEducation
   stats: ProfileStats
 }

@@ -21,10 +21,9 @@ export default function ProjectsGrid() {
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-sm" aria-hidden="true">🗺️</span>
+            <div className="mb-1">
               <span className="font-arcade text-[10px] sm:text-xs text-[#f59e0b] uppercase tracking-wider">
-                QUEST LOG // ACTIVE MISSIONS
+                QUEST LOG • ACTIVE MISSIONS
               </span>
             </div>
             <h2 className="font-arcade text-lg sm:text-2xl font-bold tracking-tight text-white">

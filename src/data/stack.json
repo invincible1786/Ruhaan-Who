@@ -1,40 +1,55 @@
 {
   "weapon": [
+    "C / C++",
+    "Python",
     "TypeScript",
-    "JavaScript (ESNext)",
-    "HTML5 / Semantic Web",
-    "CSS3 / Modern CSS",
-    "Node.js"
+    "JavaScript",
+    "SQL (PostgreSQL)",
+    "Bash / Shell",
+    "HTML5 / CSS3",
+    "LaTeX"
   ],
   "tool": [
+    "PyTorch",
+    "TensorFlow",
     "React 19",
-    "Vite",
     "Next.js",
-    "GSAP",
-    "Redux Toolkit / Zustand",
-    "TanStack Query"
+    "Node.js",
+    "FastAPI",
+    "Express",
+    "Scikit-Learn",
+    "XGBoost",
+    "Pandas / NumPy / SciPy",
+    "Socket.io",
+    "Streamlit"
   ],
   "armor": [
-    "Tailwind CSS",
     "Docker",
-    "Vercel / Cloudflare",
-    "Git & GitHub Actions",
-    "Figma",
-    "Storybook"
+    "Git & GitHub",
+    "ONNX Runtime",
+    "Modal (Serverless GPU)",
+    "Vercel",
+    "Jupyter / Google Colab",
+    "Hugging Face",
+    "ANSYS",
+    "SolidWorks",
+    "MATLAB"
   ],
   "potion": [
+    "ChromaDB (Vector DB)",
     "PostgreSQL",
-    "Redis",
-    "Prisma ORM",
-    "Supabase",
-    "RESTful APIs",
-    "GraphQL"
+    "MongoDB",
+    "Redis (Pub/Sub & Cache)",
+    "BullMQ (Job Queues)",
+    "HNSW Indexing",
+    "RESTful APIs"
   ],
   "rune": [
-    "Web Performance / Core Web Vitals",
-    "WCAG Accessibility (a11y)",
-    "Automated Testing (Vitest / Playwright)",
-    "Micro-frontend Architecture",
-    "CI/CD Pipelines"
+    "Real-Time Drone Perception (YOLOv8)",
+    "SORT Tracking & Kalman Filters",
+    "RAG & Mixture of Experts (MoE)",
+    "Stacked LSTM & AUV Trajectories",
+    "SHAP Feature Explainability",
+    "Competitive Programming (500+ DSA)"
   ]
 }

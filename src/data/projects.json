@@ -1,58 +1,64 @@
 [
   {
-    "id": "antigravity-nexus",
-    "title": "Nexus AI Agent Orchestrator",
-    "tagline": "Autonomous multi-agent workflow runtime for enterprise microservices",
-    "tech": ["TypeScript", "React", "Node.js", "Tailwind CSS", "Redis"],
-    "metric": "12,000+ workflows processed, 45% reduction in developer onboarding time",
+    "id": "fiona-mental-health",
+    "title": "Fiona — Campus Mental Health Platform",
+    "tagline": "AI-powered campus social network with real-time chat & passive mental health monitoring (Perplexity Hackathon)",
+    "tech": ["Next.js", "Socket.io", "Redis", "BullMQ", "VADER Sentiment", "TypeScript"],
+    "metric": "5K users handled via O(1) hash routing with sub-10ms delivery; moderation cut from ~800ms to <10ms",
     "thumbnail": "/assets/projects/nexus.webp",
-    "liveUrl": "https://example.com/nexus",
-    "repoUrl": "https://github.com/invincible1786/nexus-orchestrator",
+    "liveUrl": "https://github.com/invincible1786/",
+    "repoUrl": "https://github.com/invincible1786/",
     "bullets": [
-      "Engineered an event-driven task distribution engine capable of handling concurrent agent pipelines.",
-      "Implemented zero-latency state restoration with optimistic UI updates and resilient fallback mechanisms."
+      "Engineered real-time Next.js/Socket.io platform with Redis pub/sub handling 5K users via O(1) hash routing for sub-10ms delivery.",
+      "Structured a two-phase scoring worker computing VADER sentiment at send-time, offloading heavy behavioral metrics to a BullMQ queue.",
+      "Mitigated alert fatigue using a 7-day OLS regression slope over rolling windows with weighted moving averages for anomaly scores.",
+      "Built client-side Hinglish toxicity filtering via a 5-token sliding regex trie, slashing moderation latency from ~800ms (BERT) to sub-10ms."
     ]
   },
   {
-    "id": "dragons-hoard-dex",
-    "title": "Dragon's Hoard DEX",
-    "tagline": "High-throughput decentralized liquidity aggregator and portfolio tracker",
-    "tech": ["React", "TypeScript", "Tailwind CSS", "Ethers.js", "GraphQL"],
-    "metric": "$4.2M total volume routed, 60ms sub-graph query response time",
+    "id": "graphmind-rag",
+    "title": "GraphMind — RAG Pipeline for MetaKGP",
+    "tagline": "Production-grade 5.5K-page RAG search engine with 3-agent Mixture of Experts (DevSoc Hackathon)",
+    "tech": ["FastAPI", "ChromaDB", "PostgreSQL", "Groq LLM", "Modal", "HNSW Indexing"],
+    "metric": "5.5K pages indexed; top-5 semantic search results delivered under 500ms; 35% latency cut under heavy load",
     "thumbnail": "/assets/projects/dex.webp",
-    "liveUrl": "https://example.com/dex",
-    "repoUrl": "https://github.com/invincible1786/dragons-hoard-dex",
+    "liveUrl": "https://github.com/invincible1786/",
+    "repoUrl": "https://github.com/invincible1786/",
     "bullets": [
-      "Constructed custom order routing across 7 decentralized liquidity pools with minimal slippage.",
-      "Designed an interactive high-frequency orderbook visualization with WebGL and zero frame drops."
+      "Engineered a 5.5K-page RAG vector search engine with ChromaDB & PostgreSQL, delivering top-5 semantic results under 500ms.",
+      "Designed a 3-agent Mixture of Experts (MoE) pipeline featuring consensus verification to ensure traceable, hallucination-free answers.",
+      "Accelerated vector retrieval via targeted HNSW index tuning and embedding caching, slashing query latency by 35% under heavy load.",
+      "Architected a scalable FastAPI backend with Groq LLM inference and serverless Modal embeddings for campus-wide Q&A."
     ]
   },
   {
-    "id": "pulse-vitals-monitor",
-    "title": "Pulse Realtime Infrastructure Vitals",
-    "tagline": "Edge server health telemetry dashboard with sub-second incident alerting",
-    "tech": ["React", "TypeScript", "Tailwind CSS", "WebSockets", "Go"],
-    "metric": "99.99% uptime maintained across 80+ nodes, 35% reduction in incident MTTR",
+    "id": "typebolt-platform",
+    "title": "TypeBolt — Full-Stack Typing Speed Platform",
+    "tagline": "Full-stack typing performance web platform with containerized Docker environments & real-time analytics",
+    "tech": ["React", "Node.js", "Docker", "Redis", "MongoDB", "TypeScript"],
+    "metric": "Dashboard query latency slashed by 90% (150ms to <15ms); leaderboard retrieval accelerated by 85%",
     "thumbnail": "/assets/projects/pulse.webp",
-    "liveUrl": "https://example.com/pulse",
-    "repoUrl": "https://github.com/invincible1786/pulse-vitals",
+    "liveUrl": "https://github.com/invincible1786/",
+    "repoUrl": "https://github.com/invincible1786/",
     "bullets": [
-      "Streamed live node metrics via compressed binary WebSockets for low-overhead telemetry.",
-      "Built an intuitive alert threshold simulator with instant visual anomaly detection."
+      "Built a full-stack typing platform using React, Node.js, and Docker Compose for consistent, reproducible environments.",
+      "Reduced user dashboard aggregate query latency by 90% (150ms to under 15ms) using Redis caching with TTL-based invalidation.",
+      "Accelerated paginated leaderboard retrieval by 85% using compound MongoDB indexes, eradicating heavy in-memory database sorts."
     ]
   },
   {
-    "id": "castle-craft-engine",
-    "title": "CastleCraft Design System",
-    "tagline": "Accessible, token-driven retro design system for modern web interfaces",
-    "tech": ["TypeScript", "React", "Tailwind CSS", "Storybook", "Vitest"],
-    "metric": "3,400+ weekly NPM downloads, 100% WCAG-AA compliant component library",
+    "id": "netflix-data-challenge",
+    "title": "Netflix Analytics Challenge — Gold Medal",
+    "tagline": "1st Place Gold Medal solution in Netflix Data Analytics Challenge, Open IIT 2026 (TSG, IIT Kharagpur)",
+    "tech": ["Python", "XGBoost", "Scikit-Learn", "SHAP", "Pandas", "Seaborn"],
+    "metric": "Ranked #1 Gold Medal out of 22 shortlisted halls across IIT Kharagpur",
     "thumbnail": "/assets/projects/castlecraft.webp",
-    "liveUrl": "https://example.com/castlecraft",
-    "repoUrl": "https://github.com/invincible1786/castle-craft",
+    "liveUrl": "https://github.com/invincible1786/",
+    "repoUrl": "https://github.com/invincible1786/",
     "bullets": [
-      "Authored 30+ accessible headless components with full keyboard traversal and focus trapping.",
-      "Automated visual regression testing pipeline eliminating breaking UI regressions."
+      "Secured 1st place GOLD medal in Netflix's Data Analytics Challenge, Open IIT 2026, conducted by Technology Students' Gymkhana (TSG).",
+      "Engineered machine learning pipelines with XGBoost and Scikit-Learn for user engagement forecasting and retention driver analysis.",
+      "Applied SHAP value explainability across multi-channel behavioral signals to uncover high-impact viewing patterns."
     ]
   }
 ]

@@ -1,23 +1,23 @@
 [
   {
-    "year": "2024 - Present",
-    "title": "Senior Frontend / Fullstack Engineer",
-    "company": "Vanguard Labs",
-    "result": "Scaled real-time web application to 250k+ monthly active users while trimming bundle size by 38% and dropping LCP from 3.2s to 1.1s.",
-    "tags": ["React", "TypeScript", "Tailwind CSS", "Architecture", "Performance"]
+    "year": "Jun '26 - Present",
+    "title": "Research Intern — Drone Perception & Vision",
+    "company": "Bloomington University (Prof. Da Yan)",
+    "result": "Built a real-time aerial perception pipeline with fine-tuned YOLOv8m (73.4% mAP@0.5 on 5K-frame drone dataset, beating COCO baseline by 15%), CPU-based SORT tracker with Kalman filters (84.7% MOTA @ 28 FPS), and ONNX dynamic batching cutting latency to 35ms.",
+    "tags": ["YOLOv8", "SORT Tracker", "PyTorch", "ONNX", "Kalman Filters", "Computer Vision"]
   },
   {
-    "year": "2023 - 2024",
-    "title": "Software Engineer — Core Platform",
-    "company": "Aether Dynamics",
-    "result": "Spearheaded design system migration across 4 micro-frontends, reducing engineering delivery cycle time by 28% and eliminating 120+ duplicate components.",
-    "tags": ["React", "TypeScript", "Design Systems", "Web APIs", "Testing"]
+    "year": "Jul '25 - Sep '25",
+    "title": "Research Intern — AUV Thrust & Braking",
+    "company": "IIT Kharagpur (Prof. Hari V Warrior)",
+    "result": "Engineered a (64-32) Stacked LSTM from 16 sensor inputs for 3D thrust vectoring and collision braking on CFD AUV trajectories, beating XGBoost with 22% lower thrust RMSE and 12% higher brake F1, while SHAP feature selection boosted braking precision by 15% with sub-30ms edge inference.",
+    "tags": ["Stacked LSTM", "SHAP Analysis", "AUV Trajectories", "XGBoost", "PyTorch", "Edge AI"]
   },
   {
-    "year": "2022 - 2023",
-    "title": "Frontend Developer",
-    "company": "Hyperion Interactive",
-    "result": "Delivered 12 client-facing production applications with 100% on-time milestone completion and 98%+ automated test coverage.",
-    "tags": ["JavaScript", "React", "CSS3 / Sass", "REST APIs", "Git"]
+    "year": "Mar '25 - May '25",
+    "title": "Full Stack Developer Intern",
+    "company": "Bhavya Haulage Services FZCO (Dubai, UAE)",
+    "result": "Architected full-stack enterprise platform for trucking fleet management and investment portfolios; built real-time Next.js & MongoDB dashboards cutting reporting time by 40%, streamlined onboarding flows by 35%, and secured sessions via Node.js/JWT-based MFA.",
+    "tags": ["Next.js", "React", "Node.js", "Express", "MongoDB", "JWT MFA", "REST APIs"]
   }
 ]

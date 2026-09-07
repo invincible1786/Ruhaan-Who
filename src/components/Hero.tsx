@@ -1,6 +1,6 @@
 import profileData from '../data/profile.json'
 import type { Profile } from '../types/content'
-import DragonIdle from './DragonIdle'
+import DragonCompanion from './companion/DragonCompanion'
 import { trackEvent } from '../lib/analytics'
 
 const profile = profileData as Profile
@@ -10,17 +10,22 @@ export default function Hero() {
     <section
       id="hero"
       aria-label="Introduction and Profile"
-      className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-12 relative z-10"
+      className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-12 relative z-10 overflow-hidden"
     >
+      {/* Living Dragon Companion Patrol (contained in hero stacking context) */}
+      <DragonCompanion />
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left / Main Hero Content */}
         <div className="lg:col-span-7 space-y-6">
           {/* Retro Quest Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#172033] border border-[#38bdf8]/50 text-[#38bdf8]">
-            <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" aria-hidden="true" />
-            <span className="font-arcade text-[9px] sm:text-[10px] uppercase tracking-wider">
-              STATUS: ACTIVE // OPEN TO QUESTS
-            </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#172033] border border-[#38bdf8]/50 text-[#38bdf8]">
+              <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" aria-hidden="true" />
+              <span className="font-arcade text-[9px] sm:text-[10px] uppercase tracking-wider">
+                STATUS: ACTIVE • OPEN TO QUESTS
+              </span>
+            </div>
           </div>
 
           {/* Name & Role */}
@@ -37,19 +42,6 @@ export default function Hero() {
           <p className="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed">
             {profile.tagline}
           </p>
-
-          {/* Current Quest / Looking For */}
-          <div className="pixel-card p-5 rounded-xl border-l-4 border-l-[#f59e0b]">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-sm" aria-hidden="true">📜</span>
-              <span className="font-arcade text-[9px] sm:text-[10px] font-semibold text-[#f59e0b] tracking-wider">
-                PRIMARY QUEST // LOOKING FOR:
-              </span>
-            </div>
-            <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
-              {profile.lookingFor}
-            </p>
-          </div>
 
           {/* Action Links */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -94,10 +86,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right / Companion Dragon Rig */}
-        <div className="lg:col-span-5 flex flex-col items-center justify-center pt-4 lg:pt-0">
-          <DragonIdle />
-          <div className="mt-3 px-3 py-1 rounded-full bg-[#172033]/80 border border-[#2a3650] text-slate-400 font-arcade text-[8px] tracking-wider text-center">
+        {/* Right / Companion Dragon Airspace & Status */}
+        <div className="lg:col-span-5 flex flex-col items-center justify-end min-h-[140px] sm:min-h-[180px] lg:min-h-[260px] pt-4 lg:pt-0 pointer-events-none">
+          <div className="mt-auto px-3 py-1 rounded-full bg-[#172033]/80 border border-[#2a3650] text-slate-400 font-arcade text-[8px] tracking-wider text-center pointer-events-auto">
             COMPANION: DRAGON BOOMER [LVL 4]
           </div>
         </div>

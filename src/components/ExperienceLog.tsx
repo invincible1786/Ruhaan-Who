@@ -13,9 +13,8 @@ export default function ExperienceLog() {
       <div className="space-y-6">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-sm" aria-hidden="true">📜</span>
             <span className="font-arcade text-[10px] sm:text-xs text-[#a855f7] uppercase tracking-wider">
-              CAMPAIGN CHRONICLES // BOSS LOG
+              CAMPAIGN CHRONICLES • CAREER TIMELINE
             </span>
           </div>
           <h2 className="font-arcade text-lg sm:text-2xl font-bold tracking-tight text-white">
@@ -74,6 +73,52 @@ export default function ExperienceLog() {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* Guild Leadership & Extracurricular Honors */}
+        <div className="pt-4">
+          <div className="pixel-card p-5 sm:p-6 rounded-2xl border-l-4 border-l-[#a855f7] space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="font-arcade text-[10px] sm:text-xs text-[#a855f7] uppercase tracking-wider">
+                GUILD LEADERSHIP, CULTURAL & ATHLETIC HONORS
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
+              <div className="p-3.5 rounded-xl bg-[#0a0c16] border border-[#2a3650] space-y-1.5">
+                <div className="font-arcade text-[9px] text-[#38bdf8] uppercase tracking-wider">
+                  CAMPUS LEADERSHIP
+                </div>
+                <ul className="text-xs text-slate-300 space-y-1">
+                  <li>• Development Head @ Developers Society</li>
+                  <li>• Researcher @ TeamKART</li>
+                  <li>• Secretary @ Communique & NAROES</li>
+                </ul>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-[#0a0c16] border border-[#2a3650] space-y-1.5">
+                <div className="font-arcade text-[9px] text-[#f59e0b] uppercase tracking-wider">
+                  CULTURAL & THEATRE
+                </div>
+                <ul className="text-xs text-slate-300 space-y-1">
+                  <li>• Gold: Stage Play @ Thomso (IIT Roorkee)</li>
+                  <li>• Silver: Street Play @ Spring Fest</li>
+                  <li>• Stage Actor @ Encore Theatre Guild</li>
+                </ul>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-[#0a0c16] border border-[#2a3650] space-y-1.5">
+                <div className="font-arcade text-[9px] text-[#10b981] uppercase tracking-wider">
+                  SPORTS & SERVICE
+                </div>
+                <ul className="text-xs text-slate-300 space-y-1">
+                  <li>• State-Level (Punjab) Badminton Singles</li>
+                  <li>• Tritiya Sopan (Bharat Scouts & Guides)</li>
+                  <li>• Organised 3rd GMUN (250+ delegates)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

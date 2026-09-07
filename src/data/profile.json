@@ -1,16 +1,26 @@
 {
   "name": "Ruhaan Kakar",
-  "role": "Frontend & Full-Stack Engineer",
-  "tagline": "Crafting resilient, high-velocity web experiences with surgical precision and delightful interactivity.",
-  "lookingFor": "High-impact Senior Frontend or Full-Stack Engineer roles at forward-thinking, product-led companies.",
+  "role": "AI & Full-Stack Engineer • IIT Kharagpur",
+  "tagline": "B.Tech. (Hons.) in Ocean Engg. & Naval Architecture with Minor in Artificial Intelligence at IIT Kharagpur (CGPA 8.48/10). Researching real-time aerial drone perception, AUV thrust vectoring, and architecting high-scale full-stack RAG & distributed platforms.",
+  "lookingFor": "High-impact Software Engineering, Full-Stack, and AI/ML Research roles in autonomous systems, edge AI, and scalable distributed product engineering.",
   "resumeUrl": "/resume.pdf",
-  "github": "https://github.com/invincible1786",
-  "linkedin": "https://linkedin.com/in/ruhaan-kakar",
-  "email": "ruhaan.kakar@example.com",
+  "github": "https://github.com/invincible1786/",
+  "linkedin": "https://in.linkedin.com/in/ruhaankakar",
+  "email": "ruhaan.kakar@kgpian.iitkgp.ac.in",
+  "phone": "(+91) 7330022221",
+  "education": {
+    "institute": "Indian Institute of Technology, Kharagpur",
+    "degree": "B.Tech. (Hons.) Ocean Engg. & Naval Architecture",
+    "minor": "Artificial Intelligence",
+    "cgpa": "8.48 / 10",
+    "year": "2026",
+    "classXII": "93.2% (CBSE)",
+    "classX": "96.4% (CBSE)"
+  },
   "stats": {
-    "level": 4,
-    "class": "Dragon Knight // Frontend Architect",
-    "coins": 4,
-    "lives": 1
+    "level": "IIT KGP '26",
+    "class": "AI & Full-Stack Engineer",
+    "coins": "GOLD MEDAL",
+    "lives": "500+ DSA"
   }
 }

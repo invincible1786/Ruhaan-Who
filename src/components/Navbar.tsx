@@ -19,12 +19,11 @@ export default function Navbar() {
           aria-label={`${profile.name} - Home`}
           className="flex items-center gap-2.5 text-white hover:text-[#f59e0b] transition-colors focus:outline-none focus:ring-2 focus:ring-[#f59e0b] rounded px-1"
         >
-          <span className="text-xl" aria-hidden="true">🐉</span>
           <span className="font-arcade text-xs sm:text-sm tracking-tight text-white">
             {profile.name}
           </span>
-          <span className="hidden sm:inline-block font-arcade text-[10px] px-2 py-1 rounded bg-[#172033] text-[#f59e0b] border border-[#f59e0b]/40">
-            LVL {profile.stats.level}
+          <span className="hidden sm:inline-block font-arcade text-[9px] px-2 py-1 rounded bg-[#172033] text-[#f59e0b] border border-[#f59e0b]/40">
+            {profile.stats.level}
           </span>
         </a>
 

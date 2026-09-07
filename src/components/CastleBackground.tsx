@@ -9,7 +9,6 @@ export default function CastleBackground() {
   const { canParallax } = useAssetFallback()
   const farLayerRef = useRef<SVGGElement>(null)
   const midLayerRef = useRef<SVGGElement>(null)
-  const moonRef = useRef<SVGCircleElement>(null)
 
   useEffect(() => {
     // If mobile (<768px) or reduced motion, DO NOT initialize or run any GSAP ScrollTrigger parallax
@@ -19,18 +18,6 @@ export default function CastleBackground() {
 
     const ctx = gsap.context(() => {
       // Gentle parallax scrub on distant elements
-      if (moonRef.current) {
-        gsap.to(moonRef.current, {
-          y: 60,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: document.body,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 1.2,
-          },
-        })
-      }
 
       if (farLayerRef.current) {
         gsap.to(farLayerRef.current, {
@@ -81,10 +68,6 @@ export default function CastleBackground() {
             <stop offset="100%" stopColor="#0a0c16" />
           </linearGradient>
 
-          <linearGradient id="moonGlow" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#ff4726" stopOpacity="0.2" />
-          </linearGradient>
 
           <linearGradient id="castleGradFar" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#12182c" />
@@ -108,18 +91,6 @@ export default function CastleBackground() {
         {/* Sky Base */}
         <rect width="1440" height="900" fill="url(#skyGrad)" />
 
-        {/* Blood Moon / Dragon Sun */}
-        <g id="moon-group">
-          <circle
-            ref={moonRef}
-            cx="1150"
-            cy="180"
-            r="65"
-            fill="url(#moonGlow)"
-            filter="url(#glow)"
-            opacity="0.85"
-          />
-        </g>
 
         {/* Ambient Pixel Stars (Subtle, non-distracting) */}
         <g opacity="0.4" fill="#f8fafc">

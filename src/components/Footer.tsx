@@ -10,9 +10,8 @@ export default function Footer() {
     <footer className="border-t border-[#2a3650] bg-[#0a0c16] py-10">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
         <div className="flex items-center gap-2">
-          <span aria-hidden="true">🐉</span>
           <span className="font-arcade text-[9px] text-slate-400">
-            &copy; {currentYear} {profile.name} // DRAG&apos;N&apos;BOOM
+            &copy; {currentYear} {profile.name} • DRAG&apos;N&apos;BOOM
           </span>
         </div>
 

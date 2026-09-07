@@ -53,9 +53,8 @@ export default function Contact() {
         {/* Left Side: Continue Screen Briefing */}
         <div className="space-y-5">
           <div className="flex items-center gap-2">
-            <span className="text-sm" aria-hidden="true">📡</span>
             <span className="font-arcade text-[10px] text-[#ff4726] uppercase tracking-wider block">
-              CONTINUE SCREEN // TRANSMISSION
+              CONTINUE SCREEN • TRANSMISSION
             </span>
           </div>
 
@@ -71,18 +70,30 @@ export default function Contact() {
             <div className="font-arcade text-[9px] uppercase tracking-wider text-slate-400">
               DIRECT DISPATCH FREQUENCY:
             </div>
-            <div>
-              <a
-                href={`mailto:${profile.email}`}
-                aria-label={`Send direct email to ${profile.email}`}
-                className="text-base sm:text-lg font-bold text-[#38bdf8] hover:text-[#7dd3fc] transition-colors inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#38bdf8] rounded"
-              >
-                <span>✉️</span>
-                <span>{profile.email}</span>
-              </a>
+            <div className="space-y-2">
+              <div>
+                <a
+                  href={`mailto:${profile.email}`}
+                  aria-label={`Send direct email to ${profile.email}`}
+                  className="text-sm sm:text-base font-bold text-[#38bdf8] hover:text-[#7dd3fc] transition-colors inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#38bdf8] rounded"
+                >
+                  <span>{profile.email}</span>
+                </a>
+              </div>
+              {profile.phone && (
+                <div>
+                  <a
+                    href={`tel:${profile.phone.replace(/[^0-9+]/g, '')}`}
+                    aria-label={`Call Ruhaan at ${profile.phone}`}
+                    className="text-xs sm:text-sm text-slate-300 hover:text-white transition-colors inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#38bdf8] rounded"
+                  >
+                    <span className="font-arcade text-xs text-[#f59e0b]">{profile.phone}</span>
+                  </a>
+                </div>
+              )}
             </div>
             <p className="text-xs text-slate-400">
-              ⚡ Guaranteed transmission response within 24–48 hours.
+              Guaranteed transmission response within 24–48 hours.
             </p>
           </div>
 

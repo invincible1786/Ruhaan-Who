@@ -21,6 +21,11 @@
   line-height: 1.6;
   font-weight: 400;
   color-scheme: dark;
+
+  /* Shared Fire Ramp Tokens (numerically identical to firePalette.ts) */
+  --fire-core: rgb(255, 240, 200);
+  --fire-mid:  rgb(255, 140, 40);
+  --fire-edge: rgb(200, 40, 20);
 }
 
 body {
@@ -52,6 +57,23 @@ body {
   background-color: #121726;
   border: 1px solid #f59e0b;
   box-shadow: 0 0 15px rgba(245, 158, 11, 0.15), inset 0 1px 0 0 rgba(245, 158, 11, 0.2);
+}
+
+/* Smooth Accordion Dropdown Extension (Single Box) */
+.project-dropdown {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 350ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms ease-in-out;
+  opacity: 0;
+}
+
+.project-dropdown.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.project-dropdown > div {
+  overflow: hidden;
 }
 
 /* Dragon Idle Animations */
@@ -202,5 +224,75 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Dragon Companion Flourish */
+.dragon-companion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 128px;
+  height: 128px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.dragon-glow {
+  position: absolute;
+  inset: -28px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--fire-core) 0%,
+    var(--fire-mid) 38%,
+    transparent 70%
+  );
+  filter: blur(14px);
+  opacity: 0.32;
+  transition: opacity 180ms ease-out;
+}
+
+.dragon-sprite {
+  width: 128px;
+  height: 128px;
+  background-image: url("/companion/dragon-sprite.png");
+  background-repeat: no-repeat;
+  background-size: 1024px 128px; /* 8 frames × 128px */
+  animation: flap 0.7s steps(8) infinite;
+}
+
+@keyframes flap {
+  from { background-position-x: 0; }
+  to   { background-position-x: -1024px; }
+}
+
+/* Reduced-motion: stay visible, static, deliberate resting pose */
+.dragon-static {
+  transform: translate3d(62%, 18%, 0) rotate(-5deg) !important;
+}
+.dragon-static .dragon-sprite {
+  animation: none !important;
+  background-position-x: 0 !important; /* pin to the best single frame */
+}
+.dragon-static .dragon-glow {
+  opacity: 0.22;
+}
+
+/* Procedural Fireball Cursor Active Styles */
+body.fireball-cursor-active,
+body.fireball-cursor-active a,
+body.fireball-cursor-active button {
+  cursor: none;
+}
+
+/* High-Contrast / Forced-Colors Accessibility Fallbacks */
+@media (forced-colors: active) {
+  .dragon-glow,
+  canvas[aria-hidden="true"] {
+    display: none;
+  }
+  body.fireball-cursor-active {
+    cursor: auto;
   }
 }
