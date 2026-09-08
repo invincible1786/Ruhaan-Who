@@ -16,24 +16,24 @@ export default function ProjectsGrid() {
     <section
       id="projects"
       aria-label="Completed Projects and Quests"
-      className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12"
     >
-      <div className="space-y-6">
+      <div className="space-y-5 sm:space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
           <div>
             <div className="mb-1">
-              <span className="font-arcade text-[10px] sm:text-xs text-[#f59e0b] uppercase tracking-wider">
+              <span className="font-arcade text-[9px] sm:text-xs text-[#f59e0b] uppercase tracking-wider">
                 QUEST LOG • ACTIVE MISSIONS
               </span>
             </div>
-            <h2 className="font-arcade text-lg sm:text-2xl font-bold tracking-tight text-white">
+            <h2 className="font-arcade text-base sm:text-2xl font-bold tracking-tight text-white break-words">
               PROJECTS & BOSS BATTLES
             </h2>
-            <p className="text-sm sm:text-base text-slate-300 mt-1">
+            <p className="text-sm sm:text-base text-slate-300 mt-1 font-normal">
               Select any quest to inspect technical architecture, live applications, and high-score outcomes.
             </p>
           </div>
-          <span className="font-arcade text-[10px] text-[#f59e0b] bg-[#172033] px-3 py-1.5 rounded-lg border border-[#f59e0b]/30 self-start sm:self-auto">
+          <span className="font-arcade text-[9px] sm:text-[10px] text-[#f59e0b] bg-[#172033] px-3 py-1.5 rounded-lg border border-[#f59e0b]/30 self-start sm:self-auto shrink-0">
             {projects.length} ARTIFACTS
           </span>
         </div>

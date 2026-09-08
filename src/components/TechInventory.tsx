@@ -54,48 +54,48 @@ export default function TechInventory() {
     <section
       id="stack"
       aria-label="Technical Skills and Equipment Arsenal"
-      className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10"
+      className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10"
     >
       <div className="space-y-4">
         <div>
-          <span className="font-arcade text-[10px] sm:text-xs text-[#38bdf8] uppercase tracking-wider block mb-1">
+          <span className="font-arcade text-[9px] sm:text-xs text-[#38bdf8] uppercase tracking-wider block mb-1">
             TECHNICAL ARSENAL
           </span>
-          <h2 className="font-arcade text-lg sm:text-2xl font-bold tracking-tight text-white">
+          <h2 className="font-arcade text-base sm:text-2xl font-bold tracking-tight text-white break-words">
             EQUIPMENT & ARSENAL
           </h2>
-          <p className="text-sm sm:text-base text-slate-300 mt-1">
+          <p className="text-sm sm:text-base text-slate-300 mt-1 font-normal">
             Battle-tested skills, frameworks, and infrastructure mastered across production and research campaigns.
           </p>
         </div>
 
-        {/* Differentiated Inventory Slot Chassis */}
+        {/* Inventory Slot Chassis */}
         <div className="inventory-slot-panel">
           <div className="inventory-slot-border">
-            <div className="inventory-slot-content p-6 sm:p-8 divide-y divide-[#2a3650]/60 space-y-6">
+            <div className="inventory-slot-content p-4 sm:p-8 divide-y divide-[#2a3650]/60 space-y-5 sm:space-y-6">
               {categories.map((cat, idx) => (
-            <div key={cat.key} className={idx > 0 ? 'pt-6' : ''}>
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-3">
-                <h3 className={`font-arcade text-xs sm:text-sm font-bold tracking-wide ${cat.accentColor}`}>
-                  {cat.title}
-                </h3>
-                <span className="text-xs text-slate-400">
-                  {cat.subtitle}
-                </span>
-              </div>
+                <div key={cat.key} className={idx > 0 ? 'pt-5 sm:pt-6' : ''}>
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2.5 sm:mb-3">
+                    <h3 className={`font-arcade text-xs sm:text-sm font-bold tracking-wide ${cat.accentColor}`}>
+                      {cat.title}
+                    </h3>
+                    <span className="text-[11px] sm:text-xs text-slate-400">
+                      {cat.subtitle}
+                    </span>
+                  </div>
 
-              <div className="flex flex-wrap gap-2">
-                {stack[cat.key].map((item) => (
-                  <span
-                    key={item}
-                    className={`inline-block px-3 py-1 rounded-md text-xs font-medium border ${cat.badgeBg} transition-colors`}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {stack[cat.key].map((item) => (
+                      <span
+                        key={item}
+                        className={`inline-block px-2.5 py-1 sm:px-3 rounded-md text-[11px] sm:text-xs font-medium border ${cat.badgeBg} transition-colors`}
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

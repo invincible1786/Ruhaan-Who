@@ -24,7 +24,7 @@
 
   /* Shared Fire Ramp Tokens (numerically identical to firePalette.ts) */
   --fire-core: rgb(255, 240, 200);
-  --fire-mid:  rgb(255, 140, 40);
+  --fire-mid: rgb(255, 140, 40);
   --fire-edge: rgb(200, 40, 20);
 }
 
@@ -69,22 +69,18 @@ body {
 .inventory-slot-border {
   background-color: #2a3650;
   padding: 2px;
-  clip-path: polygon(
-    14px 0, calc(100% - 14px) 0,
-    100% 14px, 100% calc(100% - 14px),
-    calc(100% - 14px) 100%, 14px 100%,
-    0 calc(100% - 14px), 0 14px
-  );
+  clip-path: polygon(14px 0, calc(100% - 14px) 0,
+      100% 14px, 100% calc(100% - 14px),
+      calc(100% - 14px) 100%, 14px 100%,
+      0 calc(100% - 14px), 0 14px);
 }
 
 .inventory-slot-content {
   background-color: #121726;
-  clip-path: polygon(
-    13px 0, calc(100% - 13px) 0,
-    100% 13px, 100% calc(100% - 13px),
-    calc(100% - 13px) 100%, 13px 100%,
-    0 calc(100% - 13px), 0 13px
-  );
+  clip-path: polygon(13px 0, calc(100% - 13px) 0,
+      100% 13px, 100% calc(100% - 13px),
+      calc(100% - 13px) 100%, 13px 100%,
+      0 calc(100% - 13px), 0 13px);
 }
 
 /* 2. Contact: Quest Scroll Panel (Curved Arch Top + Serrated / Torn Sawtooth Bottom) */
@@ -95,30 +91,26 @@ body {
 .quest-scroll-border {
   background-color: #2a3650;
   padding: 2px;
-  clip-path: polygon(
-    0 22px, 4px 11px, 11px 4px, 22px 0,
-    calc(100% - 22px) 0, calc(100% - 11px) 4px, calc(100% - 4px) 11px, 100% 22px,
-    100% calc(100% - 12px),
-    95% 100%, 90% calc(100% - 12px), 85% 100%, 80% calc(100% - 12px),
-    75% 100%, 70% calc(100% - 12px), 65% 100%, 60% calc(100% - 12px),
-    55% 100%, 50% calc(100% - 12px), 45% 100%, 40% calc(100% - 12px),
-    35% 100%, 30% calc(100% - 12px), 25% 100%, 20% calc(100% - 12px),
-    15% 100%, 10% calc(100% - 12px), 5% 100%, 0 calc(100% - 12px)
-  );
+  clip-path: polygon(0 22px, 4px 11px, 11px 4px, 22px 0,
+      calc(100% - 22px) 0, calc(100% - 11px) 4px, calc(100% - 4px) 11px, 100% 22px,
+      100% calc(100% - 12px),
+      95% 100%, 90% calc(100% - 12px), 85% 100%, 80% calc(100% - 12px),
+      75% 100%, 70% calc(100% - 12px), 65% 100%, 60% calc(100% - 12px),
+      55% 100%, 50% calc(100% - 12px), 45% 100%, 40% calc(100% - 12px),
+      35% 100%, 30% calc(100% - 12px), 25% 100%, 20% calc(100% - 12px),
+      15% 100%, 10% calc(100% - 12px), 5% 100%, 0 calc(100% - 12px));
 }
 
 .quest-scroll-content {
   background-color: #121726;
-  clip-path: polygon(
-    0 21px, 4px 10px, 10px 4px, 21px 0,
-    calc(100% - 21px) 0, calc(100% - 10px) 4px, calc(100% - 4px) 10px, 100% 21px,
-    100% calc(100% - 12px),
-    95% 100%, 90% calc(100% - 12px), 85% 100%, 80% calc(100% - 12px),
-    75% 100%, 70% calc(100% - 12px), 65% 100%, 60% calc(100% - 12px),
-    55% 100%, 50% calc(100% - 12px), 45% 100%, 40% calc(100% - 12px),
-    35% 100%, 30% calc(100% - 12px), 25% 100%, 20% calc(100% - 12px),
-    15% 100%, 10% calc(100% - 12px), 5% 100%, 0 calc(100% - 12px)
-  );
+  clip-path: polygon(0 21px, 4px 10px, 10px 4px, 21px 0,
+      calc(100% - 21px) 0, calc(100% - 10px) 4px, calc(100% - 4px) 10px, 100% 21px,
+      100% calc(100% - 12px),
+      95% 100%, 90% calc(100% - 12px), 85% 100%, 80% calc(100% - 12px),
+      75% 100%, 70% calc(100% - 12px), 65% 100%, 60% calc(100% - 12px),
+      55% 100%, 50% calc(100% - 12px), 45% 100%, 40% calc(100% - 12px),
+      35% 100%, 30% calc(100% - 12px), 25% 100%, 20% calc(100% - 12px),
+      15% 100%, 10% calc(100% - 12px), 5% 100%, 0 calc(100% - 12px));
 }
 
 /* Smooth Accordion Dropdown Extension (Single Box) */
@@ -134,25 +126,31 @@ body {
   opacity: 1;
 }
 
-.project-dropdown > div {
+.project-dropdown>div {
   overflow: hidden;
 }
 
 /* Dragon Idle Animations */
 @keyframes dragonFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-15px);
   }
 }
 
 @keyframes dragonShadow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.2;
   }
+
   50% {
     transform: scale(0.75);
     opacity: 0.08;
@@ -160,18 +158,24 @@ body {
 }
 
 @keyframes wingBeatBack {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0deg);
   }
+
   50% {
     transform: rotate(-10deg);
   }
 }
 
 @keyframes wingBeatFront {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0deg);
   }
+
   50% {
     transform: rotate(8deg);
   }
@@ -199,6 +203,7 @@ body {
     transform: translateY(0) scale(1) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateY(-28px) scale(0.9) rotate(-3deg);
     opacity: 0;
@@ -210,6 +215,7 @@ body {
     transform: translateX(0) scale(1) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateX(28px) scale(0.9) rotate(3deg);
     opacity: 0;
@@ -221,6 +227,7 @@ body {
     transform: translateY(0) scale(1) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateY(28px) scale(0.9) rotate(3deg);
     opacity: 0;
@@ -232,6 +239,7 @@ body {
     transform: translateX(0) scale(1) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateX(-28px) scale(0.9) rotate(-3deg);
     opacity: 0;
@@ -243,10 +251,12 @@ body {
     opacity: 0.9;
     transform: scale(0.95);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.03);
   }
+
   100% {
     opacity: 0;
     transform: scale(1.05);
@@ -279,6 +289,7 @@ body {
 
 /* Global Prefers-Reduced-Motion Fallback Enforcement */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -292,10 +303,8 @@ body {
 /* Real Castle Flight Background (Task 4a) */
 .castle-bg {
   background-image: url('/assets/background/castle-flight-bg.jpg');
-  background-image: image-set(
-    url('/assets/background/castle-flight-bg.webp') type('image/webp'),
-    url('/assets/background/castle-flight-bg.jpg') type('image/jpeg')
-  );
+  background-image: image-set(url('/assets/background/castle-flight-bg.webp') type('image/webp'),
+      url('/assets/background/castle-flight-bg.jpg') type('image/jpeg'));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -323,10 +332,8 @@ input[type="submit"] {
 
 @supports (cursor: image-set(url('/assets/cursor/thor-hammer.png') 1x)) {
   body {
-    cursor: image-set(
-      url('/assets/cursor/thor-hammer.png') 1x,
-      url('/assets/cursor/thor-hammer@2x.png') 2x
-    ) 4 4, auto;
+    cursor: image-set(url('/assets/cursor/thor-hammer.png') 1x,
+        url('/assets/cursor/thor-hammer@2x.png') 2x) 4 4, auto;
   }
 }
 
@@ -335,6 +342,7 @@ input[type="submit"] {
   canvas[aria-hidden="true"] {
     display: none;
   }
+
   body,
   a,
   button,
@@ -344,5 +352,3 @@ input[type="submit"] {
     cursor: auto !important;
   }
 }
-
-

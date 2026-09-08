@@ -39,21 +39,21 @@ export default function ProjectTile({
         aria-expanded={isExpanded}
         aria-controls={`project-detail-${project.id}`}
         aria-label={`${isExpanded ? 'Collapse' : 'Expand'} details for project ${project.title}`}
-        className="w-full text-left p-5 sm:p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f59e0b] block cursor-pointer transition-colors"
+        className="w-full text-left p-4 sm:p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f59e0b] block cursor-pointer transition-colors"
       >
         <div className="flex items-start justify-between gap-3">
-          <div className="space-y-1">
-            <span className="font-arcade text-[9px] text-[#f59e0b] uppercase tracking-wider block">
+          <div className="space-y-1 min-w-0">
+            <span className="font-arcade text-[8px] sm:text-[9px] text-[#f59e0b] uppercase tracking-wider block">
               FEATURED BOSS QUEST
             </span>
-            <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+            <h3 className="text-base sm:text-xl font-bold text-white tracking-tight break-words">
               {project.title}
             </h3>
           </div>
 
           <span
             aria-hidden="true"
-            className={`font-arcade text-[9px] px-2.5 py-1 rounded transition-all duration-200 inline-flex items-center gap-1.5 shrink-0 ${
+            className={`font-arcade text-[9px] px-2.5 py-1.5 rounded transition-all duration-200 inline-flex items-center gap-1.5 shrink-0 ${
               isExpanded
                 ? 'bg-[#f59e0b] text-slate-950 font-bold'
                 : 'bg-[#172033] text-slate-300 border border-[#2a3650]'
@@ -70,24 +70,24 @@ export default function ProjectTile({
           </span>
         </div>
 
-        <p className="text-sm text-slate-300 mt-2.5 line-clamp-2 leading-relaxed">
+        <p className="text-sm text-slate-300 mt-2.5 line-clamp-2 leading-relaxed font-normal">
           {project.tagline}
         </p>
 
-        {/* High Score Metric Badge */}
+        {/* High Score Metric Badge - Multi-line without truncation clipping */}
         <div className="mt-3.5 px-3 py-2 rounded-lg bg-[#0a0c16] border border-[#f59e0b]/40">
-          <div className="truncate">
-            <span className="font-arcade text-[8px] text-[#f59e0b] uppercase tracking-wider block">
+          <div>
+            <span className="font-arcade text-[8px] text-[#f59e0b] uppercase tracking-wider block mb-0.5">
               SCORE METRIC
             </span>
-            <span className="text-xs font-semibold text-emerald-300 truncate block">
+            <span className="text-xs font-semibold text-emerald-300 block leading-snug break-words">
               {project.metric}
             </span>
           </div>
         </div>
 
         {/* Tech tags preview */}
-        <div className="flex flex-wrap gap-1.5 mt-4">
+        <div className="flex flex-wrap gap-1.5 mt-3.5">
           {project.tech.slice(0, 4).map((tech) => (
             <span
               key={tech}
@@ -111,23 +111,23 @@ export default function ProjectTile({
         aria-hidden={!isExpanded}
       >
         <div>
-          <div className="px-5 pb-6 sm:px-6 sm:pb-6 pt-3 border-t border-[#2a3650]/80 space-y-4">
+          <div className="px-4 pb-5 sm:px-6 sm:pb-6 pt-3 border-t border-[#2a3650]/80 space-y-4">
             {/* Full High Score Outcome */}
-            <div className="p-3.5 rounded-lg bg-[#0a0c16] border border-[#f59e0b]/40">
-              <span className="font-arcade text-[9px] text-[#f59e0b] uppercase tracking-wider block mb-1">
+            <div className="p-3 sm:p-3.5 rounded-lg bg-[#0a0c16] border border-[#f59e0b]/40">
+              <span className="font-arcade text-[8px] sm:text-[9px] text-[#f59e0b] uppercase tracking-wider block mb-1">
                 HIGH SCORE • QUANTIFIED OUTCOME:
               </span>
-              <p className="text-sm font-semibold text-white leading-relaxed">
+              <p className="text-xs sm:text-sm font-semibold text-white leading-relaxed break-words">
                 {project.metric}
               </p>
             </div>
 
             {/* Tactical Highlights */}
             <div className="space-y-1.5">
-              <span className="font-arcade text-[9px] text-slate-400 uppercase tracking-wider block">
+              <span className="font-arcade text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-wider block">
                 &gt; TACTICAL HIGHLIGHTS:
               </span>
-              <ul className="list-disc list-inside text-sm text-slate-300 space-y-1.5 leading-relaxed">
+              <ul className="list-disc list-inside text-xs sm:text-sm text-slate-300 space-y-1.5 leading-relaxed">
                 {project.bullets.map((bullet, idx) => (
                   <li key={idx} className="marker:text-[#f59e0b]">
                     {bullet}
@@ -138,7 +138,7 @@ export default function ProjectTile({
 
             {/* Arsenal Utilized */}
             <div>
-              <span className="font-arcade text-[9px] text-slate-400 uppercase tracking-wider block mb-2">
+              <span className="font-arcade text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-wider block mb-2">
                 &gt; ARSENAL UTILIZED:
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -154,13 +154,13 @@ export default function ProjectTile({
             </div>
 
             {/* Action Links */}
-            <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-[#2a3650]/60">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-3 border-t border-[#2a3650]/60">
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open live application for ${project.title}`}
-                className="inline-flex items-center px-4 py-2 rounded bg-[#ff4726] hover:bg-[#ff300a] text-white font-arcade text-[10px] tracking-wider transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ff4726]"
+                className="inline-flex items-center justify-center min-h-[44px] px-4 py-2.5 rounded-lg bg-[#ff4726] hover:bg-[#ff300a] text-white font-arcade text-[10px] tracking-wider transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ff4726]"
               >
                 LAUNCH APP &rarr;
               </a>
@@ -169,7 +169,7 @@ export default function ProjectTile({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View GitHub source code for ${project.title}`}
-                className="inline-flex items-center px-4 py-2 rounded bg-[#0a0c16] hover:bg-[#172033] text-slate-200 font-arcade text-[10px] tracking-wider transition-colors border border-[#2a3650] focus:outline-none focus:ring-2 focus:ring-[#38bdf8]"
+                className="inline-flex items-center justify-center min-h-[44px] px-4 py-2.5 rounded-lg bg-[#0a0c16] hover:bg-[#172033] text-slate-200 font-arcade text-[10px] tracking-wider transition-colors border border-[#2a3650] focus:outline-none focus:ring-2 focus:ring-[#38bdf8]"
               >
                 VIEW SOURCE
               </a>
